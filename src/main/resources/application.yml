@@ -1,0 +1,24 @@
+spring:
+  data:
+    redis:
+      host: localhost
+      port: 6379
+
+  jpa:
+    generate-ddl: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/user_db
+    username: postgres
+    password: postgres
+    hikari:
+      schema: user_schema
+      connection-init-sql: CREATE SCHEMA IF NOT EXISTS user_schema
+      connection-timeout: 10000
+
+#        кастомные настройки
+app:
+  jwt:
+    secret: "someSecretKey"
+    tokenExpiration: 5s
+    refreshTokenExpiration: 30m
+#    refreshTokenExpiration: 10s
